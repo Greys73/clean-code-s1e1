@@ -5,14 +5,10 @@
 //Solution: Add interactivity so the user can manage daily tasks.
 //Break things down into smaller steps and take each step at a time.
 
-
-// Event handling, user interaction is what starts the code execution.
-
-var taskInput = document.getElementById("task-input");//Add a new task.
-var addButton = document.querySelector(".new-task .task__btn");//Add button.
-var incompleteTaskHolder = document.querySelector(".active-tasks");//ul of active tasks
-var completedTasksHolder = document.querySelector(".completed-tasks");//ul of completed tasks
-
+var taskInput,
+    addButton,
+    incompleteTaskHolder,
+    completedTasksHolder = null;
 
 //New task list item
 var createNewTaskElement=function(taskString){
@@ -60,8 +56,6 @@ var createNewTaskElement=function(taskString){
     listItem.appendChild(deleteButton);
     return listItem;
 }
-
-
 
 var addTask=function(){
     console.log("Add Task...");
@@ -148,11 +142,6 @@ var ajaxRequest=function(){
 
 //The glue to hold it all together.
 
-//Set the click handler to the addTask function.
-addButton.onclick=addTask;
-addButton.addEventListener("click",addTask);
-addButton.addEventListener("click",ajaxRequest);
-
 
 var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     console.log("bind list item events");
@@ -170,21 +159,32 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     checkBox.onchange=checkBoxEventHandler;
 }
 
-//cycle over incompleteTaskHolder ul list items
-//for each list item
-for (var i=0; i<incompleteTaskHolder.children.length;i++){
+
+document.addEventListener("DOMContentLoaded", ()=> {
+  // Event handling, user interaction is what starts the code execution.
+  taskInput = document.getElementById("task-input");//Add a new task.
+  addButton = document.querySelector(".new-task .task__btn");//Add button.
+  incompleteTaskHolder = document.querySelector(".active-tasks");//ul of active tasks
+  completedTasksHolder = document.querySelector(".completed-tasks");//ul of completed tasks
+
+  //Set the click handler to the addTask function.
+  addButton.onclick=addTask;
+  addButton.addEventListener("click",addTask);
+  addButton.addEventListener("click",ajaxRequest);
+
+  //cycle over incompleteTaskHolder ul list items
+  //for each list item
+  for (var i=0; i<incompleteTaskHolder.children.length;i++){
     //bind events to list items chldren(tasksCompleted)
     bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
-}
+  }
 
-//cycle over completedTasksHolder ul list items
-for (var i=0; i<completedTasksHolder.children.length;i++){
+  //cycle over completedTasksHolder ul list items
+  for (var i=0; i<completedTasksHolder.children.length;i++){
     //bind events to list items chldren(tasksIncompleted)
     bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
-}
-
+  }
+});
 // Issues with usability don't get seen until they are in front of a human tester.
-
 //prevent creation of empty tasks.
-
 //Change edit to save when you are in edit mode.
