@@ -37,7 +37,7 @@ h3 {
   margin: 0;
   font-size: 18px;
   line-height: 18px;
-  width: 56%;
+  min-width: 65%;
   height: 21px;
   padding: 0 9px;
   border: 1px solid #ddd;
@@ -80,13 +80,14 @@ h3 {
 /* ADD ITEM */
 .new-task {
   display: block;
+  padding: 15px 0;
 }
 .new-task__label {
   display: block;
-  margin: 0 0 20px;
+  padding-bottom: 15px;  
 }
 .new-task .task__input {
-  width: 83%;
+  min-width: 83%;
   display: inline-block;
 }
 
@@ -110,7 +111,7 @@ h3 {
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
-  width: 226px;
+  flex-grow: 1;
 }
 .task > .task__input {
   display: none;
