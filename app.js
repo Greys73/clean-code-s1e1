@@ -8,10 +8,10 @@
 
 // Event handling, user interaction is what starts the code execution.
 
-var taskInput = document.getElementById("taskInput");//Add a new task.
-var addButton = document.getElementById("addButton");//Add button.
-var incompleteTaskHolder = document.getElementById("activeTasks");//ul of #activeTasks
-var completedTasksHolder = document.getElementById("completedTasks");//ul of #completedTasks
+var taskInput = document.getElementById("task-input");//Add a new task.
+var addButton = document.querySelector(".new-task .task__btn");//Add button.
+var incompleteTaskHolder = document.querySelector(".active-tasks");//ul of active tasks
+var completedTasksHolder = document.querySelector(".completed-tasks");//ul of completed tasks
 
 
 //New task list item
@@ -86,13 +86,12 @@ var editTask=function(){
 
     var listItem=this.parentNode;
 
-    var editInput=listItem.querySelector("input[type=text]");
-    var label=listItem.querySelector("label");
+    var editInput=listItem.querySelector(".task__input");
+    var label=listItem.querySelector(".task__label");
     var editBtn=listItem.querySelector(".task__btn-edit");
     var containsClass=listItem.classList.contains("task_edit");
     //If class of the parent is .task_edit
     if(containsClass){
-
         //switch to .task_edit
         //label becomes the inputs value.
         label.innerText=editInput.value;
@@ -118,7 +117,6 @@ var deleteTask=function(){
 
 }
 
-
 //Mark task completed
 var taskCompleted=function(){
     console.log("Complete Task...");
@@ -132,7 +130,6 @@ var taskCompleted=function(){
 
 }
 
-
 var taskIncomplete=function(){
     console.log("Incomplete Task...");
     //Mark task as incomplete.
@@ -145,14 +142,11 @@ var taskIncomplete=function(){
     bindTaskEvents(listItem,taskCompleted);
 }
 
-
-
 var ajaxRequest=function(){
     console.log("AJAX Request");
 }
 
 //The glue to hold it all together.
-
 
 //Set the click handler to the addTask function.
 addButton.onclick=addTask;
@@ -183,17 +177,11 @@ for (var i=0; i<incompleteTaskHolder.children.length;i++){
     bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
 }
 
-
-
-
 //cycle over completedTasksHolder ul list items
 for (var i=0; i<completedTasksHolder.children.length;i++){
     //bind events to list items chldren(tasksIncompleted)
     bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
 }
-
-
-
 
 // Issues with usability don't get seen until they are in front of a human tester.
 
