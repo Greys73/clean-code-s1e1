@@ -53,16 +53,16 @@ h3 {
 
 /* Header */
 .header {
-    width: 500px;
-    margin: 0 auto;
-    display: block;
-    text-align: right;
+  width: 500px;
+  margin: 0 auto;
+  display: block;
+  text-align: right;
 }
 .header__img {
-    width: 100%;
+  width: 100%;
 }
 .header__link {
-    font-family: fantasy, cursive;
+  font-family: fantasy, cursive;
 }
 @media (max-width: 768px) {
   .header {
@@ -72,9 +72,9 @@ h3 {
 
 /* Main */
 .wrapper {
-    display: block;
-    width: 500px;
-    margin: 0 auto 0;
+  display: block;
+  width: 500px;
+  margin: 0 auto 0;
 }
 
 /* ADD ITEM */
@@ -93,49 +93,49 @@ h3 {
 
 /* Task list */
 .task {
-    overflow: hidden;
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  overflow: hidden;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .task > * {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 .task > .task__chk {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 .task > .task__label {
-    padding-left: 10px;
-    box-sizing: border-box;
-    font-size: 18px;
-    width: 226px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
+  width: 226px;
 }
 .task > .task__input {
-    display: none;
+  display: none;
 }
 .task__btn-delete__img {
-    height: 2em;
-    transform: rotateZ(45deg);
-    transition: transform 200ms ease-in;
+  height: 2em;
+  transform: rotateZ(45deg);
+  transition: transform 200ms ease-in;
 }
 .task__btn-delete__img:hover {
-    transform: rotateZ(0);
+  transform: rotateZ(0);
 }
 
 /* Completed modifier */
 .task__label_completed {
-    text-decoration: line-through;
-    color: #888;
+  text-decoration: line-through;
+  color: #888;
 }
 
 /* Edit modifier */
 .task_edit .task__input {
-    display: inline-block;
-    width: 210px;
+  display: inline-block;
+  width: 210px;
 }
 .task_edit .task__label {
-    display: none;
+  display: none;
 }
